@@ -1,0 +1,157 @@
+@import "../../../node_modules/sass-svg/index";
+
+$pipScreenWidth: 800px;
+$pipScreenHeight: 640px;
+
+$pipBorderWidth: 2px;
+
+$pipFont: "Share Tech Mono";
+$pipFontsize: 20px;
+
+$pipBackgroundColor: black;
+$pipForegroundColor: #00ff09;
+
+$pipMainMenuHeight: 32px;
+$pipSubMenuHeight: 32px;
+$pipStatusHeight: 32px;
+
+@font-face {
+	font-family: $pipFont;
+	font-style: normal;
+	font-weight: 400;
+	src: local('Share Tech Mono'), local('ShareTechMono-Regular'), url(/fonts/ShareTechMono.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+html, body{
+	height: 100%;
+	background: $pipBackgroundColor;
+	color: $pipForegroundColor;
+	font-size: $pipFontsize;
+	font-family: $pipFont;
+	margin: 0;
+	padding: 0;
+}
+
+#pip-console{
+	width: $pipScreenWidth;
+	height: $pipScreenHeight;
+	margin: auto;
+	display: block;
+}
+
+div, a, p, td, th{
+	color: $pipForegroundColor;
+}
+
+a{
+	text-decoration: none;
+}
+
+.pip-menu{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li{
+		display: inline-block;
+
+		a{
+			display: block;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.x{
+	width: 100px;
+	height: 100px;
+
+	@include svg((
+		width: 10,
+		height: 55,
+		viewBox: 0 0 10 55,
+
+	)) {
+		@include svg('line', (
+			stroke: red,
+			stroke-width: 5,
+			x1: 0,
+			y1: 25,
+			x2: 0,
+			y2: 55
+		));
+
+	};
+
+}
+
+#pip-mainmenu{
+	padding: 0 0 0 70px;
+	margin-bottom: -4px;
+	border-bottom: $pipBorderWidth solid $pipForegroundColor;
+	height: $pipMainMenuHeight;
+	margin-bottom: 7px;
+
+	.pip-menu{
+		background: transparent;
+
+		li{
+			a{
+				padding: 10px 14px;
+
+				&.active{
+					background: $pipBackgroundColor;
+
+					&:before{
+
+
+						//background: $pipBackgroundColor;
+						width: 15px;
+						height: 35px;
+						content: " ";
+						top: 0;
+						display: inline-block;
+						position: absolute;
+						margin: 0 0 0 -16px;
+
+						@include svg((
+							x: 0px,
+							y: 0px,
+							viewBox: 0 0 15 35,
+
+						)) {
+							@include svg('polygon', (
+								fill: red,
+								stroke-width: 2,
+								x1: 0, y1: 0,
+								x2: 10, y2: 10,
+								stroke: black
+							));
+						};
+
+
+						/*@include svg{
+							@include svg('line', (
+								fill: $pipForegroundColor,
+							));
+						}*/
+					}
+
+
+				}
+			}
+		}
+	}
+}
+
+#pip-content{
+	height: $pipScreenHeight - $pipStatusHeight - $pipSubMenuHeight;
+	background: yellow;
+}
+
+#pip-status{
+	height: $pipStatusHeight;
+	background: red;
+}
