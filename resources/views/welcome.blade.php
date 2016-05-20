@@ -3,12 +3,13 @@
 <head>
 	<title>PIP</title>
 	<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/lights.css') }}">
 </head>
 <body>
 
 	<div id="app">
 		<div class="block-lights">
-			<lights></lights>
+			@include('components.lights')
 		</div>
 	</div>
 

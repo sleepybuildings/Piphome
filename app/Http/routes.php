@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 
 Route::get('lights', 'LightsController@getLights');
+Route::post('lights/toggle', 'LightsController@postToggle');

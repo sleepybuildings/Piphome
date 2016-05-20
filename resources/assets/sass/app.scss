@@ -1,16 +1,7 @@
 // @import "../../../node_modules/sass-svg/index";
 
+@import "variables";
 @import "grid";
-
-$pipBackgroundColor: black;
-$pipForegroundColor: white;
-
-$pipScreenWidth: 800px;
-$pipScreenHeight: 640px;
-
-$pipFont: "Share Tech Mono";
-$pipFontsize: 20px;
-
 
 @font-face {
 	font-family: $pipFont;
@@ -32,6 +23,12 @@ html, body{
 }
 
 #app{
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+
 	width: $pipScreenWidth;
 	height: $pipScreenHeight;
 	display: grid;

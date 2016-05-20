@@ -15,12 +15,18 @@ elixir(function(mix)
 {
     mix.scripts([
        // '../../../node_modules/vue/dist/vue.common.js',
+        '../../../node_modules/jquery/dist/jquery.js',
         '../../../node_modules/vue/dist/vue.js',
         'lights.js',
         'app.js'
 
     ], 'public/js/globals.js');
 
-    mix.sass('app.scss').version('public/css/app.css');
+    mix.sass('lights.scss');
+    mix.sass('app.scss');
 
+    mix.version([
+        'public/css/lights.css',
+        'public/css/app.css',
+    ]);
 });

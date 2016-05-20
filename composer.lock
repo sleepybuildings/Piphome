@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "347055c024f24b9fe62e0acba267a94b",
-    "content-hash": "e7d4ce8c91794f55d2478c010b5a1f0c",
+    "hash": "03463b5c3da29fe5731cc853c5b59395",
+    "content-hash": "7106f7f73c177481855b8ab7b9cbb0d5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -517,6 +517,54 @@
                 "storage"
             ],
             "time": "2016-04-28 06:53:12"
+        },
+        {
+            "name": "mexitek/phpcolors",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mexitek/phpColors.git",
+                "reference": "629eb54bf7f920529c815fd5f85b5af9651ae9f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mexitek/phpColors/zipball/629eb54bf7f920529c815fd5f85b5af9651ae9f0",
+                "reference": "629eb54bf7f920529c815fd5f85b5af9651ae9f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "nette/tester": "~1.6"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arlo Carreon",
+                    "homepage": "http://arlocarreon.com",
+                    "role": "creator"
+                }
+            ],
+            "description": "A series of methods that let you manipulate colors. Just incase you ever need different shades of one color on the fly.",
+            "homepage": "http://mexitek.github.com/phpColors/",
+            "keywords": [
+                "color",
+                "css",
+                "design",
+                "frontend",
+                "ui"
+            ],
+            "time": "2016-01-12 23:45:10"
         },
         {
             "name": "monolog/monolog",
@@ -3064,7 +3112,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mexitek/phpcolors": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
