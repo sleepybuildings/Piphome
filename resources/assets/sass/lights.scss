@@ -3,9 +3,9 @@
 $lightSize: 120px;
 
 .lights{
-	margin: 0;
+	margin: 23px 0 0 10px;
 	padding: 0;
-	height: $lightSize;
+	height: $lightSize + 40px;
 	list-style: none;
 
 	li{
@@ -22,7 +22,7 @@ $lightSize: 120px;
 	margin: 20px;
 
 	&.off{
-	//	opacity: 0.4;
+		opacity: 0.4;
 	}
 
 	.name, .status{

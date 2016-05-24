@@ -1,7 +1,7 @@
 .lights {
-  margin: 0;
+  margin: 23px 0 0 10px;
   padding: 0;
-  height: 120px;
+  height: 160px;
   list-style: none; }
   .lights li {
     display: inline-block; }
@@ -13,6 +13,8 @@
   height: 120px;
   display: inline-block;
   margin: 20px; }
+  .light.off {
+    opacity: 0.4; }
   .light .name, .light .status {
     text-align: center; }
   .light .name {

@@ -19937,13 +19937,11 @@ var template = Object.freeze({
 
 			updateLight: function(light)
 			{
-				if(typeof(this.lights[light.id]) === 'undefined')
+				if(typeof(this.lights[light.id - 1]) === 'undefined')
 					this.lights.push(light);
-				else {
-
+				else
 					for(var property in light)
 						this.lights[light.id - 1][property] = light[property];
-				}
 			},
 
 
