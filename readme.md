@@ -1,8 +1,16 @@
+# Piphome
 
+Raspberry pi home dashboard
 
-// npm install sass-svg --save
+## Install
 
+```
 npm install jquery
 npm install vue
+```
 
-about:config > layout.css.grid.enabled
+Firefox config:
+
+```
+about:config > layout.css.grid.enabled = true
+```
