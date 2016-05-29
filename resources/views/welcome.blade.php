@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="{{ elixir('css/clock.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/lighttools.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/networkdevices.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/weather.css') }}">
 </head>
 <body>
 
@@ -15,11 +16,10 @@
 			@include('components.clock')
 		</div>
 
-		<div class="block-lights">
-			@include('components.lights')
-		</div>
+		@include('components.lights')
 		@include('components.lighttools')
 		@include('components.networkdevices')
+		@include('components.weather')
 	</div>
 
 	<script type="text/javascript" src="/js/globals.js"></script>

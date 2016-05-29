@@ -41,7 +41,7 @@ class Pinger
 		$result = [];
 
 		// uhuh
-		if(preg_match('/(\d+)% packet loss/i', shell_exec((env('DEBUG')? '' : 'sudo ') . 'ping -w1 -c1 ' . $ipAddress), $result))
+		if(preg_match('/(\d+)% packet loss/i', shell_exec((env('APP_DEBUG')? '' : 'sudo ') . 'ping -w1 -c1 ' . $ipAddress), $result))
 		{
 			return isset($result[1]) && floatval($result[1]) < 100;
 		}

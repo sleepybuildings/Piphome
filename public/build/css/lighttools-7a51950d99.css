@@ -1,10 +1,10 @@
 .light-tools {
   background: red;
-  position: relative;
-  top: 0;
+  position: absolute;
+  top: 55px;
   left: 138px;
-  width: 190px;
-  height: 100px;
+  width: 220px;
+  height: 137px;
   padding: 15px;
   background: #c2c0da; }
   .light-tools button {

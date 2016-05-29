@@ -1,0 +1,51 @@
+@import "variables";
+
+
+.block-weather{
+	position: absolute;
+	background-color: #A7CFDE;
+	width: 220px;
+	height: 300px;
+	top: 193px;
+	left: 138px;
+	padding: 15px;
+
+	.current-weather{
+		border-bottom: $pipBorderWidth solid $pipBorderColor;
+		overflow: auto;
+
+		.icon{
+			float: left;
+			padding-top: 7px;
+			margin-left: 15px;
+		}
+
+		.temperature{
+			font-size: 40px;
+			float: left;
+			margin-top: -12px;
+		}
+	}
+
+	.sun{
+		margin: 5px 0 0 0;
+
+		img{
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+
+		&:last-child{
+			border-bottom: $pipBorderWidth solid $pipBorderColor;
+			padding-bottom: 10px;
+		}
+	}
+
+	p{
+		margin: 15px 0 0 0;
+		line-height: 16px;
+		font-size: smaller;
+		height: 115px;
+		overflow: hidden;
+	}
+}

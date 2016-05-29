@@ -53,6 +53,9 @@
   src: local("Pragati Narrow Bold"), local("PragatiNarrow-Bold"), url(https://fonts.gstatic.com/s/pragatinarrow/v2/DnSI1zRkc0CY-hI5SC3q3EBqNlhjGh6uyjdvfMwxzYs.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
 
+* {
+  box-sizing: border-box; }
+
 html, body {
   height: 100%;
   background: white;
@@ -68,6 +71,9 @@ body::-webkit-scrollbar {
 
 :focus {
   outline: none; }
+
+.block {
+  outline: 3px solid white; }
 
 #app {
   -ms-user-select: none;

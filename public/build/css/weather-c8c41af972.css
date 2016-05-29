@@ -1,0 +1,35 @@
+.block-weather {
+  position: absolute;
+  background-color: #A7CFDE;
+  width: 220px;
+  height: 300px;
+  top: 193px;
+  left: 138px;
+  padding: 15px; }
+  .block-weather .current-weather {
+    border-bottom: 3px solid white;
+    overflow: auto; }
+    .block-weather .current-weather .icon {
+      float: left;
+      padding-top: 7px;
+      margin-left: 15px; }
+    .block-weather .current-weather .temperature {
+      font-size: 40px;
+      float: left;
+      margin-top: -12px; }
+  .block-weather .sun {
+    margin: 5px 0 0 0; }
+    .block-weather .sun img {
+      vertical-align: middle;
+      margin-right: 10px; }
+    .block-weather .sun:last-child {
+      border-bottom: 3px solid white;
+      padding-bottom: 10px; }
+  .block-weather p {
+    margin: 15px 0 0 0;
+    line-height: 16px;
+    font-size: smaller;
+    height: 115px;
+    overflow: hidden; }
+
+/*# sourceMappingURL=weather.css.map */

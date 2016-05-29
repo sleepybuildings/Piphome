@@ -1,8 +1,8 @@
 .networkdevices-block {
-  position: relative;
-  left: 598px;
-  top: -130px;
-  height: 170px;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  height: 190px;
   width: 172px;
   padding: 15px;
   background: #FDE8AC; }

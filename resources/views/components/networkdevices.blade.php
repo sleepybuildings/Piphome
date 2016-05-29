@@ -1,7 +1,7 @@
 <networkdevices></networkdevices>
 
 <script type="text/x-template" id="networkdevices-template">
-	<div class="networkdevices-block">
+	<div class="block networkdevices-block">
 		<ul class="networkdevices">
 			<li v-for="device in devices">
 				@{{ device.name }}

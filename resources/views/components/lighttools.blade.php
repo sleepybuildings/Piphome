@@ -1,7 +1,7 @@
 <lighttools></lighttools>
 
 <script type="text/x-template" id="lighttools-template">
-	<div class="light-tools">
+	<div class="block light-tools">
 		<button v-on:click="toggle()">
 			<span v-if="active">
 				Stop (<span> @{{ timerCountdown }}</span> )
