@@ -4,7 +4,7 @@ $lightSize: 100px;
 
 .block-lights{
 	height: $pipScreenHeight - $pipToolbar;
-	background: #DCDCDC;
+	background: #c2c0da;
 	position: absolute;
 	left: 0;
 	width: 138px;
@@ -22,14 +22,18 @@ $lightSize: 100px;
 
 .light{
 	border-radius: 50%;
-	border: 4px solid white;
+	border: $pipBorderWidth solid $pipBorderColor;
 	width: $lightSize;
 	height: $lightSize;
 	display: inline-block;
 	margin: 23px 0 5px 15px;
 
 	&.off{
-		opacity: 0.5;
+		opacity: 0.8;
+	}
+
+	&.on{
+		box-shadow: 0px 0px 51px;
 	}
 
 	.name, .status{
@@ -37,12 +41,16 @@ $lightSize: 100px;
 	}
 
 	.name{
-		margin-top: ($lightSize / 2) - $pipFontsize;
+		margin-top: 36px;
 		text-shadow: 0px 0px 9px black;
+		line-height: 10px;
+		color: white;
 	}
 
 	.status{
 		font-size: smaller;
-		color: gray;
+		text-shadow: 0px 0px 9px black;
+
+		color: rgba(255, 255, 255, 0.76);
 	}
 }

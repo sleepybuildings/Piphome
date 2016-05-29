@@ -5,7 +5,7 @@
 
 		<ul class="lights">
 			<li v-for="light in lights">
-				<a v-bind:style="{ 'background-color': light.hexColor }"
+				<a v-bind:style="{ 'background-color': light.hexColor, 'color': light.hexColor }"
 				   v-bind:light="light"
 				   v-on:click="toggleLight(light)"
 				   class="light @{{{ light.on? 'on' : 'off' }}}"
