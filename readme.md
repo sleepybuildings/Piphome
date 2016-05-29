@@ -14,3 +14,5 @@ Firefox config:
 ```
 about:config > layout.css.grid.enabled = true
 ```
+
+![Screenshot](./screenshot.png)
