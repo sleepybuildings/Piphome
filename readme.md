@@ -2,17 +2,14 @@
 
 Raspberry pi home dashboard
 
+![Screenshot](./screenshot.png)
+
 ## Install
 
 ```
 npm install jquery
 npm install vue
+composer install
 ```
 
-Firefox config:
-
-```
-about:config > layout.css.grid.enabled = true
-```
-
-![Screenshot](./screenshot.png)
+See `.env.example` for configuration options.
