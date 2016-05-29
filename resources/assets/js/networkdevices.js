@@ -31,7 +31,7 @@
 
 				start: function()
 				{
-					window.setInterval(this.updateDeviceList, 1000 * 10);
+					window.setInterval(this.updateDeviceList, 1000 * 10 * 5);
 				},
 
 

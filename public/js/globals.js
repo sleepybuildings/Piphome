@@ -20048,7 +20048,7 @@ var template = Object.freeze({
 			{
 				return {
 
-					timerLength: 60 * 1, // Aantal seconden, 10 minuten
+					timerLength: 60 * 5, // Aantal seconden, 10 minuten
 					timerCountdown: "00:00",
 					timeLeft: 0,
 					active: false,
@@ -20169,7 +20169,7 @@ var template = Object.freeze({
 
 				start: function()
 				{
-					window.setInterval(this.updateDeviceList, 1000 * 10);
+					window.setInterval(this.updateDeviceList, 1000 * 10 * 5);
 				},
 
 
