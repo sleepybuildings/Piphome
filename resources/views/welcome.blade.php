@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="{{ elixir('css/lighttools.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/networkdevices.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/weather.css') }}">
+	<style type="text/css">
+		@if(!env('APP_DEBUG'))
+			*{ cursor: none }
+		@endif
+	</style>
 </head>
 <body>
 
