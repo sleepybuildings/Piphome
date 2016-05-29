@@ -19936,16 +19936,6 @@ var template = Object.freeze({
 (function()
 {
 
-	var lights = {
-
-		toggleLight: function(light)
-		{
-
-		}
-
-	};
-
-
 	Vue.component('lights',
 	{
 		template: '#light-template',
@@ -19973,18 +19963,18 @@ var template = Object.freeze({
 		created: function()
 		{
 			this.findLights();
+			this.start();
 		},
 
 
-		/*computed: {
-			hexColor: function(x)
-			{
-				return '#121212';
-			}
-		},*/
-
-
 		methods: {
+
+
+			start: function()
+			{
+				window.setInterval(this.findLights, 1000 * 60);
+			},
+
 
 			findLights: function()
 			{
