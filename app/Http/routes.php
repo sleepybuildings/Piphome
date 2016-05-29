@@ -18,3 +18,6 @@ Route::get('/', function () {
 
 Route::get('lights', 'LightsController@getLights');
 Route::post('lights/toggle', 'LightsController@postToggle');
+Route::post('lights/turn-all-off', 'LightsController@postTurnAllOff');
+
+Route::get('ping', 'PingerController@getPing');

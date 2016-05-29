@@ -31,6 +31,14 @@
 		},
 
 
+		events: {
+			updatelights: function()
+			{
+				this.findLights();
+			}
+		},
+
+
 		created: function()
 		{
 			this.findLights();

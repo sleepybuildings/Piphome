@@ -1,0 +1,1 @@
+rsync -avx --progress --exclude ".git" --exclude ".idea"  --exclude "node_modules" --exclude "storage"  /Users/thomassmit/Sites/Piphome/ "/Volumes/Home Directory/www/piphome/"

@@ -2,14 +2,7 @@
 
 @import "variables";
 @import "grid";
-
-@font-face {
-	font-family: $pipFont;
-	font-style: normal;
-	font-weight: 400;
-	src: local('Share Tech Mono'), local('ShareTechMono-Regular'), url(/fonts/ShareTechMono.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
+@import "fonts";
 
 
 html, body{
@@ -17,9 +10,16 @@ html, body{
 	background: $pipBackgroundColor;
 	color: $pipForegroundColor;
 	font-size: $pipFontsize;
-	font-family: $pipFont;
+	font-family: $pipFontNormal;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
+}
+
+body::-webkit-scrollbar { width: 0 !important }
+
+:focus {
+	outline: none;
 }
 
 #app{
@@ -29,11 +29,29 @@ html, body{
 	-webkit-user-select: none;
 	-o-user-select: none;
 
+	position: relative;
 	width: $pipScreenWidth;
 	height: $pipScreenHeight;
 	display: grid;
 	grid-template-columns: ($pipScreenWidth / 6) ($pipScreenWidth / 6) ($pipScreenWidth / 6) ($pipScreenWidth / 6) ($pipScreenWidth / 6) ($pipScreenWidth / 6);
 	grid-template-rows: ($pipScreenHeight / 6) ($pipScreenHeight / 6) ($pipScreenHeight / 6) ($pipScreenHeight / 6) ($pipScreenHeight / 6) ($pipScreenHeight / 6);
+}
+
+button{
+	border: 2px solid white;
+	background: rgba(255, 255, 255, 0.11);
+	font-size: $pipFontsize;
+	font-family: $pipFontNormal;
+
+	&:active{
+		background: rgba(97, 97, 97, 0.5);
+	}
+}
+
+#toolbar{
+	background: $pipToolbarBackgroundColor;
+	color: $pipToolbarForegroundColor;
+	height: $pipToolbar;
 }
 
 .block-lights{

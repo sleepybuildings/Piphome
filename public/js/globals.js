@@ -19877,6 +19877,65 @@ var template = Object.freeze({
 (function()
 {
 
+
+	Vue.component('clock',
+	{
+		template: '#clock-template',
+
+
+		data: function()
+		{
+			return {
+				currentTime: '00:00',
+			}
+		},
+
+
+		created: function()
+		{
+			this.startTime();
+		},
+
+
+		/*computed: {
+			hexColor: function(x)
+			{
+				return '#121212';
+			}
+		},*/
+
+
+		methods: {
+
+			startTime: function()
+			{
+				var self = this;
+				window.setInterval(function()
+				{
+					var now = new Date();
+					self.currentTime = self.pad(now.getHours()) + ':' + self.pad(now.getMinutes());
+
+				}, 1000);
+			},
+
+
+			pad: function(num)
+			{
+				return num <= 9? '0' + num : num;
+			}
+
+		}
+	});
+
+
+})();
+/**
+ * Created by thomassmit on 14/05/16.
+ */
+
+(function()
+{
+
 	var lights = {
 
 		toggleLight: function(light)
@@ -19899,6 +19958,14 @@ var template = Object.freeze({
 				// Gevonden lichten
 
 				lights: []
+			}
+		},
+
+
+		events: {
+			updatelights: function()
+			{
+				this.findLights();
 			}
 		},
 
@@ -19962,6 +20029,110 @@ var template = Object.freeze({
 
 		}
 	});
+
+
+})();
+/**
+ * Created by thomassmit on 14/05/16.
+ */
+
+(function()
+{
+
+	Vue.component('lighttools',
+		{
+			template: '#lighttools-template',
+
+
+			data: function()
+			{
+				return {
+
+					timerLength: 60 * 1, // Aantal seconden, 10 minuten
+					timerCountdown: "00:00",
+					timeLeft: 0,
+					active: false,
+					handle: null,
+
+				}
+			},
+
+
+			methods: {
+				turnLightsOff: function()
+				{
+					var self = this;
+					$.post('/lights/turn-all-off').always(function()
+					{
+						self.$root.$broadcast('updatelights');
+					});
+				},
+
+
+
+				startTimer: function()
+				{
+					if(this.active)
+						return;
+
+					this.active = true;
+					this.timeLeft = this.timerLength;
+					this.setTimeLeft();
+
+					// start timer
+
+					var self = this;
+					this.handle = window.setInterval(function()
+					{
+						self.timeLeft--;
+
+						if(self.timeLeft <= 0)
+						{
+							self.stopTimer();
+							self.turnLightsOff();
+
+						} else {
+							self.setTimeLeft();
+						}
+
+					}, 1000);
+				},
+
+
+				setTimeLeft: function()
+				{
+					this.timerCountdown = this.pad(Math.floor(this.timeLeft / 60)) +
+						':' +
+						this.pad(this.timeLeft % 60);
+				},
+
+
+				stopTimer: function()
+				{
+					if(this.active)
+					{
+						this.active = false;
+						window.clearInterval(this.handle);
+						this.handle = null;
+					}
+				},
+
+
+				toggle: function()
+				{
+					if(this.active)
+						this.stopTimer();
+					else
+						this.startTimer();
+				},
+
+
+				pad: function(num)
+				{
+					return num <= 9? '0' + num : num;
+				}
+			}
+		});
 
 
 })();

@@ -1,11 +1,8 @@
 <?php namespace Piphome\Lib;
 
-declare(strict_types=1);
-
-use Illuminate\Support\Facades\Cache;
+use Phue\Command\SetLightState;
 use Phue\Light;
 use Mexitek\PHPColors\Color;
-
 
 class Lights
 {
@@ -29,6 +26,22 @@ class Lights
 	{
 		return $this->client->getLights();
 	}
+
+
+	public function turnAllOff()
+	{
+		$lights = 0;
+		foreach($this->getLights() as $light)
+		{
+			$command = new SetLightState($light);
+			$command->on(false);
+			$command->send($this->client);
+			$lights++;
+		}
+
+		return $lights;
+	}
+
 
 
 	/**

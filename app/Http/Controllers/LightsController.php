@@ -30,6 +30,13 @@ class LightsController extends Controller
 		);
 	}
 
+	
+	public function postTurnAllOff()
+	{
+		return response()->json([
+			'off' => (new Lights())->turnAllOff()
+		]);
+	}
 
 
 }

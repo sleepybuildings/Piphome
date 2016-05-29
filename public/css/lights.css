@@ -1,7 +1,13 @@
+.block-lights {
+  height: 425px;
+  background: #DCDCDC;
+  position: absolute;
+  left: 0;
+  width: 138px; }
+
 .lights {
-  margin: 23px 0 0 10px;
   padding: 0;
-  height: 160px;
+  margin: 0;
   list-style: none; }
   .lights li {
     display: inline-block; }
@@ -9,16 +15,16 @@
 .light {
   border-radius: 50%;
   border: 4px solid white;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   display: inline-block;
-  margin: 20px; }
+  margin: 23px 0 5px 15px; }
   .light.off {
-    opacity: 0.4; }
+    opacity: 0.5; }
   .light .name, .light .status {
     text-align: center; }
   .light .name {
-    margin-top: 40px;
+    margin-top: 30px;
     text-shadow: 0px 0px 9px black; }
   .light .status {
     font-size: smaller;
