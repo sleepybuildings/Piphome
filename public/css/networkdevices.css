@@ -1,0 +1,29 @@
+.networkdevices-block {
+  position: relative;
+  left: 598px;
+  top: -130px;
+  height: 170px;
+  width: 172px;
+  padding: 15px;
+  background: #FDE8AC; }
+  .networkdevices-block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .networkdevices-block ul li {
+      width: 100%; }
+      .networkdevices-block ul li div {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        float: left;
+        border-radius: 50%;
+        margin-right: 13px;
+        margin-top: 6px;
+        border: 1px solid rgba(86, 86, 86, 0.35); }
+        .networkdevices-block ul li div.on {
+          background: #9eec59; }
+        .networkdevices-block ul li div.off {
+          background: #F798A6; }
+
+/*# sourceMappingURL=networkdevices.css.map */

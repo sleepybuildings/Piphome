@@ -20,16 +20,19 @@ elixir(function(mix)
         'clock.js',
         'lights.js',
         'lighttools.js',
+        'networkdevices.js',
         'app.js'
 
     ], 'public/js/globals.js');
 
+    mix.sass('networkdevices.scss');
     mix.sass('lighttools.scss');
     mix.sass('clock.scss');
     mix.sass('lights.scss');
     mix.sass('app.scss');
 
     mix.version([
+        'public/css/networkdevices.css',
         'public/css/lighttools.css',
         'public/css/clock.css',
         'public/css/lights.css',

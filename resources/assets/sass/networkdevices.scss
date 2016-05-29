@@ -1,0 +1,44 @@
+@import "variables";
+
+$networkDeviceBlockWidth: 172px;
+
+.networkdevices-block{
+	position: relative;
+	left: 598px;
+	top: -130px;
+	height: 170px;
+	width: $networkDeviceBlockWidth;
+	padding: 15px;
+	background: #FDE8AC;
+
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li{
+			//width: $networkDeviceBlockWidth / 2;
+			width: 100%;
+			//float: left;
+
+			div{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				float: left;
+				border-radius: 50%;
+				margin-right: 13px;
+				margin-top: 6px;
+				border: 1px solid rgba(86, 86, 86, 0.35);
+
+				&.on{
+					background: #9eec59;
+				}
+
+				&.off{
+					background: #F798A6;
+				}
+			}
+		}
+	}
+}
