@@ -1,0 +1,151 @@
+/**
+ * Created by thomassmit on 14/05/16.
+ */
+
+(function()
+{
+
+	$.fn.pageSwipe = function()
+	{
+		var swiper = {
+
+			threshold: 200,
+			pageWidth: 0,
+			moving: false,
+
+			pages: {
+				active: null,
+				left:   null,
+				right:  null,
+			},
+
+
+			position: {
+				start:   0,
+				current: 0
+			},
+
+
+			init: function(activePage)
+			{
+				this.selectPages(activePage);
+			},
+
+
+			selectPages: function(newActivePage)
+			{
+				if(!newActivePage.size())
+				{
+					this.resetMove();
+					return;
+				}
+
+				this.pages.active = newActivePage;
+				this.pages.left = newActivePage.prev();
+				this.pages.right = newActivePage.next();
+			},
+
+
+			resetMove: function()
+			{
+				this.setPagePosition(0);
+			},
+
+
+			finishMove: function()
+			{
+				if(Math.abs(this.position.current - this.position.start) < this.threshold)
+				{
+					this.resetMove();
+					return;
+				}
+
+				if(this.position.current > this.position.start)
+				{
+					this.pages.active.css('left', this.pageWidth);
+					this.pages.left.css('left', 0);
+
+					this.selectPages(this.pages.left);
+
+				} else {
+					this.pages.active.css('left', -this.pageWidth);
+					this.pages.right.css('left', 0);
+
+					this.selectPages(this.pages.right);
+				}
+			},
+
+
+			movePage: function(pointerPosition)
+			{
+				this.position.current = pointerPosition;
+
+				var newPosition = 0;
+				if(this.position.current > this.position.start)
+					newPosition = this.position.current - this.position.start;
+				else
+					newPosition = -(this.position.start - this.position.current);
+
+				this.setPagePosition(newPosition);
+			},
+
+
+			setPagePosition: function(left)
+			{
+				this.pages.active.css('left', left);
+				this.pages.right.css('left', left + this.pageWidth);
+				this.pages.left.css('left', left - this.pageWidth);
+			},
+
+
+			onPageMouseDown: function(event)
+			{
+				this.moving = true;
+				this.position.start = this.position.current = event.clientX;
+			},
+
+
+			onPageMouseUp: function(event)
+			{
+				if(this.moving)
+				{
+					this.moving = false;
+					this.position.current = event.clientX;
+					this.finishMove();
+				}
+			},
+
+
+			onPageMouseMove: function(event)
+			{
+				if(this.moving)
+					this.movePage(event.clientX);
+			},
+		};
+
+
+		var pageLeft = 0;
+		$(this).find('.page').each(function()
+		{
+			if(swiper.pageWidth == 0)
+				swiper.pageWidth = $(this).width();
+
+			$(this)
+				.css('left', pageLeft)
+				.bind('mousedown', function(event){ swiper.onPageMouseDown(event) })
+				.bind('mouseup',   function(event){ swiper.onPageMouseUp(event)   })
+				.bind('mousemove', function(event){ swiper.onPageMouseMove(event) });
+
+			pageLeft += swiper.pageWidth;
+		});
+
+		swiper.init($(this).find('.page:first'));
+	};
+
+
+	$(document).ready(function()
+	{
+		$('#pages').pageSwipe();
+	})
+
+})();

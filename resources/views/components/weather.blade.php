@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="icon">
-				<img src="@{{ icon }}"/>
+				<img v-bind:src="@{{ icon }}"/>
 			</div>
 		</div>
 

@@ -21,10 +21,27 @@
 			@include('components.clock')
 		</div>
 
-		@include('components.lights')
-		@include('components.lighttools')
-		@include('components.networkdevices')
-		@include('components.weather')
+		<div id="pages">
+			<div class="page" style="background:red">
+				@include('components.lights')
+				@include('components.lighttools')
+				@include('components.networkdevices')
+				@include('components.weather')
+			</div>
+
+			<div class="page" style="background: royalblue;">
+				<h1 style="margin: 100px; color:white;font-size: 30px">KOE</h1>
+			</div>
+
+			<div class="page" style="background: #dfe126;">
+				<h1 style="margin: 100px; color:white;font-size: 30px">RUND</h1>
+			</div>
+
+			<div class="page" style="background: #5de167;">
+				<h1 style="margin: 100px; color:white;font-size: 30px">SCHAAP</h1>
+			</div>
+		</div>
+
 	</div>
 
 	<script type="text/javascript" src="/js/globals.js"></script>

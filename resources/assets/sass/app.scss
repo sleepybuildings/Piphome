@@ -69,3 +69,20 @@ button{
 	grid-row: 1/ 3;
 	background: lighten($pipBackgroundColor, 10%);
 }
+
+#pages{
+	overflow: hidden;
+	position: relative;
+	height: $pipScreenHeight - $pipToolbar;
+	width: $pipScreenWidth;
+	background: url(/images/background.png);
+
+	.page{
+		background: white;
+		width: $pipScreenWidth;
+		height: $pipScreenHeight - $pipToolbar;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}

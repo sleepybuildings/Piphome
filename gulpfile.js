@@ -17,6 +17,7 @@ elixir(function(mix)
        // '../../../node_modules/vue/dist/vue.common.js',
         '../../../node_modules/jquery/dist/jquery.js',
         '../../../node_modules/vue/dist/vue.js',
+        'pageswipe.js',
         'clock.js',
         'lights.js',
         'lighttools.js',
