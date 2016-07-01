@@ -38,5 +38,10 @@ class LightsController extends Controller
 		]);
 	}
 
+	public function postSetColors()
+	{
+		echo 'KOE';
+	}
+
 
 }

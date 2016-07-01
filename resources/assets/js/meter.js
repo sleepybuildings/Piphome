@@ -116,7 +116,7 @@
 							name: 'kW',
 							data: [0.000],
 							dataLabels: {
-								y: -20,
+								y: -70,
 								borderWidth: 0,
 								useHTML: true,
 								formatter: function()

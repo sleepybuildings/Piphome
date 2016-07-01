@@ -25,6 +25,7 @@
 
 
 			methods: {
+
 				turnLightsOff: function()
 				{
 					var self = this;
@@ -33,7 +34,6 @@
 						self.$root.$broadcast('updatelights');
 					});
 				},
-
 
 
 				startTimer: function()

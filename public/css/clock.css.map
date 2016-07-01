@@ -1,1 +1,1 @@
-{"version":3,"sources":["clock.scss"],"names":[],"mappings":"AAAA;EACC,gBAAgB;EAChB,kBAAkB;EAClB,oBAAoB,EACpB","file":"clock.css","sourcesContent":[".clock{\n\tfont-size: 52px;\n\tline-height: 54px;\n\tmargin: 0 0 0 687px;\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["clock.scss"],"names":[],"mappings":"AAAA;EACC,gBAAgB;EAChB,kBAAkB;EAClB,oBAAoB;EACpB,eAAU,EACV","file":"clock.css","sourcesContent":[".clock{\n\tfont-size: 52px;\n\tline-height: 54px;\n\tmargin: 0 0 0 687px;\n\tcolor: rgb(152, 152, 152);\n}"],"sourceRoot":"/source/"}

@@ -57,6 +57,9 @@
 
 						self.updateLight(response[index]);
 					}
+
+					self.$root.$broadcast('lightsupdated', this.lights);
+
 				});
 			},
 

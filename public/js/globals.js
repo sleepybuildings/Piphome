@@ -20010,9 +20010,9 @@ var template = Object.freeze({
 
 			onPageMouseDown: function(event)
 			{
-				if(event.target.type && (
+				if(event.target.className === 'rangeslider__handle'  || (event.target.type && (
 						event.target.type == 'range' || event.target.type == 'submit' || event.target.type == 'button')
-				)
+				))
 				{
 					return;
 				}
@@ -20184,6 +20184,9 @@ var template = Object.freeze({
 
 						self.updateLight(response[index]);
 					}
+
+					self.$root.$broadcast('lightsupdated', this.lights);
+
 				});
 			},
 
@@ -20245,6 +20248,7 @@ var template = Object.freeze({
 
 
 			methods: {
+
 				turnLightsOff: function()
 				{
 					var self = this;
@@ -20253,7 +20257,6 @@ var template = Object.freeze({
 						self.$root.$broadcast('updatelights');
 					});
 				},
-
 
 
 				startTimer: function()
@@ -20349,15 +20352,16 @@ var template = Object.freeze({
 
 
 		events: {
-			updatelights: function()
+			lightsupdated: function()
 			{
-			//	this.findLights();
+				this.setLights(this.$root.$refs.lights.lights);
 			}
 		},
 
 
 		created: function()
 		{
+			var me = this;
 			// Wachten totdat Vue daadwerkelijk klaar is...
 			setTimeout(function()
 			{
@@ -20379,38 +20383,107 @@ var template = Object.freeze({
 
 				palette.src = '/images/palette.jpg';
 
+				me.setupRange();
+
 			}, 500);
 		},
 
 
+		watch: {
+			brightness: function()
+			{
+				this.setLightColor();
+			},
+
+			selectedColor: function()
+			{
+				this.setLightColor();
+			}
+		},
+
 		methods: {
 
-
-			start: function()
+			selectLight: function(light)
 			{
+				light.selected = !light.selected;
+			},
 
+
+			setLights: function(lights)
+			{
+				for(var index in lights)
+				{
+					if(!this.lights[index])
+					{
+						var clonedLight = Vue.util.extend({}, lights[index]);
+						clonedLight.selected = false;
+						this.lights.push(clonedLight);
+					}
+				}
+			},
+
+
+			setLightColor: function()
+			{
+				var me = this;
+				$.post('/lights/set-colors', {
+
+					brightness: this.brightness,
+					color: this.selectedColor,
+
+				}, function()
+				{
+
+
+				}).always(function()
+				{
+					me.$root.$broadcast('updatelights');
+				});
 			},
 
 
 			colorSelected: function(event)
 			{
-
 				var clientRect = event.target.getBoundingClientRect();
-
-				console.log(event.clientX - clientRect.left, event.clientY - clientRect.top);
-
-
-				var info = event.target.getContext('2d').getImageData(event.clientX - clientRect.left, event.clientY - clientRect.top, 1, 1);
+				var info = event.target.getContext('2d').getImageData(
+					event.clientX - clientRect.left, event.clientY - clientRect.top, 1, 1
+				);
 
 				this.selectedColor = '#' + this.convertRGB(info.data[0], info.data[1], info.data[2]);
-console.log(this.selectedColor);
-				//console.log(info, );
 			},
 
 
 			convertRGB: function(R, G, B)
 			{
 				return ((R << 16) | (G << 8) | B).toString(16);
+			},
+
+
+			setupRange: function()
+			{
+				var me = this;
+				$('input[type="range"]').rangeslider({
+
+					polyfill: false,
+
+					rangeClass: 'rangeslider',
+					disabledClass: 'rangeslider--disabled',
+					horizontalClass: 'rangeslider--horizontal',
+					verticalClass: 'rangeslider--vertical',
+					fillClass: 'rangeslider__fill',
+					handleClass: 'rangeslider__handle',
+
+					onSlide: function(position, value)
+					{
+					//	me.brightness = value;
+					},
+
+					onSlideEnd: function(position, value)
+					{
+						me.brightness = value;
+					}
+				});
+
 			}
 
 
@@ -20657,7 +20730,7 @@ console.log(this.selectedColor);
 							name: 'kW',
 							data: [0.000],
 							dataLabels: {
-								y: -20,
+								y: -70,
 								borderWidth: 0,
 								useHTML: true,
 								formatter: function()

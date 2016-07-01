@@ -138,9 +138,9 @@
 
 			onPageMouseDown: function(event)
 			{
-				if(event.target.type && (
+				if(event.target.className === 'rangeslider__handle'  || (event.target.type && (
 						event.target.type == 'range' || event.target.type == 'submit' || event.target.type == 'button')
-				)
+				))
 				{
 					return;
 				}

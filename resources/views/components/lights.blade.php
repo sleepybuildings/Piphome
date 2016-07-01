@@ -1,8 +1,7 @@
-<lights></lights>
+<lights v-ref:lights></lights>
 
 <script type="text/x-template" id="light-template">
-	<div class="block block-lights">
-
+	<div class="block block-lights" >
 		<ul class="lights">
 			<li v-for="light in lights">
 				<a v-bind:style="{ 'background-color': light.hexColor, 'color': light.hexColor }"

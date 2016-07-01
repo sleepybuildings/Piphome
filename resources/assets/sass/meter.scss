@@ -1,5 +1,5 @@
 @import "variables";
-
+@import "fonts";
 
 .block-meter{
 	position: absolute;
@@ -12,9 +12,11 @@
 .meter-current{
 	color: white;
 	text-align: center;
+	font-family: $pipFontNormal;
+
 
 	.current{
-		font-size: 30px;
+		font-size: 50px;
 	}
 
 	.unit{

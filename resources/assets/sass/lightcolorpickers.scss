@@ -1,7 +1,9 @@
 @import "variables";
 
-$pickerWidth: 500px;
-$toolsWidth: ($pipScreenWidth - $pickerWidth) / 2;
+$toolsWidth: 200px;
+$brightnessHeight: 80px;
+$pickerWidth: $pipScreenWidth - $toolsWidth;
+$pickerHeight: $pipScreenHeight - $brightnessHeight - $pipToolbar;
 
 .block-lightcolorpickers{
 	position: relative;
@@ -16,33 +18,82 @@ $toolsWidth: ($pipScreenWidth - $pickerWidth) / 2;
 
 	.lights{
 		width: $toolsWidth;
-		background: red;
+		background: #232323;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li{
+			display: block;
+
+			a{
+				display: block;
+				color: #626262;
+				padding: 10px 0;
+				text-align: center;
+				text-decoration: none;
+
+				&.selected{
+					background: #626262;
+					color: white;
+				}
+			}
+		}
 	}
 
 	.picker{
 		width: $pickerWidth;
+		height: $pickerHeight;
 		left: $toolsWidth;
-		border-left: 2px solid white;
-		border-right: 2px solid white;
-
+		background: green;
 
 		canvas{
 			background-size: contain;
 			width: $pickerWidth;
-			height: $pipScreenHeight - $pipToolbar;
+			height: $pickerHeight;
 		}
 	}
 
 	.brightness{
-		width: $toolsWidth;
-		background: green;
 		right: 0;
+		top: 345px;
+		height: $brightnessHeight;
+		left: $toolsWidth;
+		background: red;
 
 		input[type="range"]{
-			//transform: rotate(90deg);
-			-webkit-appearance: slider-vertical;
-			width: $toolsWidth;
-			height: 100%;
+		}
+	}
+}
+
+.rangeslider{
+	width: 100%;
+	background: #5d5c5c;
+	height: 100%;
+
+	.rangeslider__fill, .rangeslider__handle{
+		height: 100%;
+	}
+
+	.rangeslider__fill{
+		background: #434242;
+		position: absolute;
+	}
+
+	.rangeslider__handle{
+		display: inline-block;
+		width: 60px;
+		position: absolute;
+		background: #858383;
+
+		&:before{
+			content: "\f0c9";
+			margin: 21px 11px;
+			display: block;
+			font: normal normal normal 14px/1 FontAwesome;
+			transform: rotate(-90deg);
+			color: rgba(255, 255, 255, 0.44);
+			font-size: 25px;
 		}
 	}
 }
