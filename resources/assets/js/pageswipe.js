@@ -10,6 +10,7 @@
 		var swiper = {
 
 			threshold: 200,
+			ignore: 10,
 			pageWidth: 0,
 			moving: false,
 
@@ -52,6 +53,12 @@
 			},
 
 
+			gotoPage: function()
+			{
+
+			},
+
+
 			finishMove: function()
 			{
 				if(Math.abs(this.position.current - this.position.start) < this.threshold)
@@ -80,6 +87,9 @@
 			{
 				this.position.current = pointerPosition;
 
+				if(Math.abs(this.position.current - this.position.start) < this.ignore)
+					return; // Negeer te kleine swipes
+
 				var newPosition = 0;
 				if(this.position.current > this.position.start)
 					newPosition = this.position.current - this.position.start;
@@ -100,6 +110,13 @@
 
 			onPageMouseDown: function(event)
 			{
+				if(event.target.type && (
+						event.target.type == 'range' || event.target.type == 'submit' || event.target.type == 'button')
+				)
+				{
+					return;
+				}
+
 				this.moving = true;
 				this.position.start = this.position.current = event.clientX;
 			},

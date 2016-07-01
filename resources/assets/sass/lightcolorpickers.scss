@@ -1,0 +1,48 @@
+@import "variables";
+
+$pickerWidth: 500px;
+$toolsWidth: ($pipScreenWidth - $pickerWidth) / 2;
+
+.block-lightcolorpickers{
+	position: relative;
+	height: $pipScreenHeight - $pipToolbar;
+
+	.lights, .picker, .brightness{
+		position: absolute;
+		height: $pipScreenHeight - $pipToolbar;
+		bottom: 0;
+		top: 0;
+	}
+
+	.lights{
+		width: $toolsWidth;
+		background: red;
+	}
+
+	.picker{
+		width: $pickerWidth;
+		left: $toolsWidth;
+		border-left: 2px solid white;
+		border-right: 2px solid white;
+
+
+		canvas{
+			background-size: contain;
+			width: $pickerWidth;
+			height: $pipScreenHeight - $pipToolbar;
+		}
+	}
+
+	.brightness{
+		width: $toolsWidth;
+		background: green;
+		right: 0;
+
+		input[type="range"]{
+			//transform: rotate(90deg);
+			-webkit-appearance: slider-vertical;
+			width: $toolsWidth;
+			height: 100%;
+		}
+	}
+}

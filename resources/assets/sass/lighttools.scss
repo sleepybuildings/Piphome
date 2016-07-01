@@ -6,12 +6,13 @@
 	left: 138px;
 	width: 220px;
 	height: 137px;
-	padding: 15px;
-	background: #c2c0da;
+	background: #232323;
 
 	button{
 		width: 100%;
-		margin-bottom: 15px;
+		color: white;
+
+		height: (137px / 2);
 
 		&:last-child{
 			margin-bottom: 0;

@@ -1,17 +1,19 @@
 .networkdevices-block {
   position: absolute;
   right: 0;
-  top: 55px;
-  height: 190px;
-  width: 172px;
-  padding: 15px;
-  background: #FDE8AC; }
+  top: 0;
+  height: 136px;
+  width: 442px;
+  padding: 18px 25px;
+  background: #5d5c5c; }
   .networkdevices-block ul {
     margin: 0;
     padding: 0;
     list-style: none; }
     .networkdevices-block ul li {
-      width: 100%; }
+      color: #b0afaf;
+      width: 191px;
+      float: left; }
       .networkdevices-block ul li div {
         display: inline-block;
         width: 20px;

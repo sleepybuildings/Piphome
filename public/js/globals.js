@@ -19877,6 +19877,174 @@ var template = Object.freeze({
 (function()
 {
 
+	$.fn.pageSwipe = function()
+	{
+		var swiper = {
+
+			threshold: 200,
+			ignore: 10,
+			pageWidth: 0,
+			moving: false,
+
+			pages: {
+				active: null,
+				left:   null,
+				right:  null,
+			},
+
+
+			position: {
+				start:   0,
+				current: 0
+			},
+
+
+			init: function(activePage)
+			{
+				this.selectPages(activePage);
+			},
+
+
+			selectPages: function(newActivePage)
+			{
+				if(!newActivePage.size())
+				{
+					this.resetMove();
+					return;
+				}
+
+				this.pages.active = newActivePage;
+				this.pages.left = newActivePage.prev();
+				this.pages.right = newActivePage.next();
+			},
+
+
+			resetMove: function()
+			{
+				this.setPagePosition(0);
+			},
+
+
+			gotoPage: function()
+			{
+
+			},
+
+
+			finishMove: function()
+			{
+				if(Math.abs(this.position.current - this.position.start) < this.threshold)
+				{
+					this.resetMove();
+					return;
+				}
+
+				if(this.position.current > this.position.start)
+				{
+					this.pages.active.css('left', this.pageWidth);
+					this.pages.left.css('left', 0);
+
+					this.selectPages(this.pages.left);
+
+				} else {
+					this.pages.active.css('left', -this.pageWidth);
+					this.pages.right.css('left', 0);
+
+					this.selectPages(this.pages.right);
+				}
+			},
+
+
+			movePage: function(pointerPosition)
+			{
+				this.position.current = pointerPosition;
+
+				if(Math.abs(this.position.current - this.position.start) < this.ignore)
+					return; // Negeer te kleine swipes
+
+				var newPosition = 0;
+				if(this.position.current > this.position.start)
+					newPosition = this.position.current - this.position.start;
+				else
+					newPosition = -(this.position.start - this.position.current);
+
+				this.setPagePosition(newPosition);
+			},
+
+
+			setPagePosition: function(left)
+			{
+				this.pages.active.css('left', left);
+				this.pages.right.css('left', left + this.pageWidth);
+				this.pages.left.css('left', left - this.pageWidth);
+			},
+
+
+			onPageMouseDown: function(event)
+			{
+				if(event.target.type && (
+						event.target.type == 'range' || event.target.type == 'submit' || event.target.type == 'button')
+				)
+				{
+					return;
+				}
+
+				this.moving = true;
+				this.position.start = this.position.current = event.clientX;
+			},
+
+
+			onPageMouseUp: function(event)
+			{
+				if(this.moving)
+				{
+					this.moving = false;
+					this.position.current = event.clientX;
+					this.finishMove();
+				}
+			},
+
+
+			onPageMouseMove: function(event)
+			{
+				if(this.moving)
+					this.movePage(event.clientX);
+			},
+		};
+
+
+		var pageLeft = 0;
+		$(this).find('.page').each(function()
+		{
+			if(swiper.pageWidth == 0)
+				swiper.pageWidth = $(this).width();
+
+			$(this)
+				.css('left', pageLeft)
+				.bind('mousedown', function(event){ swiper.onPageMouseDown(event) })
+				.bind('mouseup',   function(event){ swiper.onPageMouseUp(event)   })
+				.bind('mousemove', function(event){ swiper.onPageMouseMove(event) });
+
+			pageLeft += swiper.pageWidth;
+		});
+
+		swiper.init($(this).find('.page:first'));
+	};
+
+
+	$(document).ready(function()
+	{
+		$('#pages').pageSwipe();
+	})
+
+})();
+/**
+ * Created by thomassmit on 14/05/16.
+ */
+
+(function()
+{
+
 
 	Vue.component('clock',
 	{
@@ -20123,6 +20291,103 @@ var template = Object.freeze({
 				}
 			}
 		});
+
+
+})();
+/**
+ * Created by thomassmit on 19/06/16.
+ */
+
+(function()
+{
+
+	Vue.component('lightcolorpickers',
+	{
+		template: '#lightcolorpickers-template',
+
+
+		data: function()
+		{
+
+			return {
+				// Gevonden lichten
+
+				brightness: 100,
+				selectedColor: '#000000',
+
+				lights: []
+			}
+		},
+
+
+		events: {
+			updatelights: function()
+			{
+			//	this.findLights();
+			}
+		},
+
+
+		created: function()
+		{
+			// Wachten totdat Vue daadwerkelijk klaar is...
+			setTimeout(function()
+			{
+				var palette = new Image();
+
+				palette.onload = function()
+				{
+					var canvas = $('.block-lightcolorpickers canvas')[0];
+
+					canvas.getContext('2d')
+						.drawImage(
+							palette,
+							0, 0,
+							canvas.width, canvas.height
+						);
+					
+					palette.style.display = 'none';
+				};
+
+				palette.src = '/images/palette.jpg';
+
+			}, 500);
+		},
+
+
+		methods: {
+
+
+			start: function()
+			{
+
+			},
+
+
+			colorSelected: function(event)
+			{
+
+				var clientRect = event.target.getBoundingClientRect();
+
+				console.log(event.clientX - clientRect.left, event.clientY - clientRect.top);
+
+
+				var info = event.target.getContext('2d').getImageData(event.clientX - clientRect.left, event.clientY - clientRect.top, 1, 1);
+
+				this.selectedColor = '#' + this.convertRGB(info.data[0], info.data[1], info.data[2]);
+console.log(this.selectedColor);
+				//console.log(info, );
+			},
+
+
+			convertRGB: function(R, G, B)
+			{
+				return ((R << 16) | (G << 8) | B).toString(16);
+			}
+
+
+		}
+	});
 
 
 })();

@@ -1,14 +1,14 @@
 .light-tools {
   position: absolute;
-  top: 55px;
+  top: 0;
   left: 138px;
   width: 220px;
   height: 137px;
-  padding: 15px;
-  background: #c2c0da; }
+  background: #232323; }
   .light-tools button {
     width: 100%;
-    margin-bottom: 15px; }
+    color: white;
+    height: 68.5px; }
     .light-tools button:last-child {
       margin-bottom: 0; }
 

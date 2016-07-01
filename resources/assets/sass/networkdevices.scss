@@ -1,15 +1,15 @@
 @import "variables";
 
-$networkDeviceBlockWidth: 172px;
+$networkDeviceBlockWidth: 442px;
 
 .networkdevices-block{
 	position: absolute;
 	right: 0;
 	top: 0;
-	height: 190px;
+	height: 136px;
 	width: $networkDeviceBlockWidth;
-	padding: 15px;
-	background: #FDE8AC;
+	padding: 18px 25px;
+	background: #5d5c5c;
 
 	ul{
 		margin: 0;
@@ -17,9 +17,9 @@ $networkDeviceBlockWidth: 172px;
 		list-style: none;
 
 		li{
-			//width: $networkDeviceBlockWidth / 2;
-			width: 100%;
-			//float: left;
+			color: #b0afaf;
+			width: abs(30 - ($networkDeviceBlockWidth / 2));
+			float: left;
 
 			div{
 				display: inline-block;

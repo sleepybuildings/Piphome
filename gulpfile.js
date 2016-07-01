@@ -21,12 +21,14 @@ elixir(function(mix)
         'clock.js',
         'lights.js',
         'lighttools.js',
+        'lightcolorpicker.js',
         'weather.js',
         'networkdevices.js',
         'app.js'
 
     ], 'public/js/globals.js');
 
+    mix.sass('lightcolorpickers.scss');
     mix.sass('networkdevices.scss');
     mix.sass('lighttools.scss');
     mix.sass('weather.scss');
@@ -35,6 +37,7 @@ elixir(function(mix)
     mix.sass('app.scss');
 
     mix.version([
+        'public/css/lightcolorpickers.css',
         'public/css/networkdevices.css',
         'public/css/weather.css',
         'public/css/lighttools.css',
@@ -42,4 +45,6 @@ elixir(function(mix)
         'public/css/lights.css',
         'public/css/app.css',
     ]);
+
+
 });

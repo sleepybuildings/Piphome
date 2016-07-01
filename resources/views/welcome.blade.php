@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="{{ elixir('css/lighttools.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/networkdevices.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/weather.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/lightcolorpickers.css') }}">
 	<style type="text/css">
 		@if(!env('APP_DEBUG'))
 			*{ cursor: none }
@@ -22,16 +23,19 @@
 		</div>
 
 		<div id="pages">
-			<div class="page" style="background:red">
+
+			<div class="page">
 				@include('components.lights')
 				@include('components.lighttools')
 				@include('components.networkdevices')
 				@include('components.weather')
 			</div>
 
+
 			<div class="page" style="background: royalblue;">
-				<h1 style="margin: 100px; color:white;font-size: 30px">KOE</h1>
+				@include('components.lightcolorpicker')
 			</div>
+
 
 			<div class="page" style="background: #dfe126;">
 				<h1 style="margin: 100px; color:white;font-size: 30px">RUND</h1>

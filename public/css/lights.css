@@ -1,6 +1,6 @@
 .block-lights {
   height: 425px;
-  background: #c2c0da;
+  background: #232323;
   position: absolute;
   left: 0;
   width: 138px; }
@@ -18,7 +18,7 @@
   width: 100px;
   height: 100px;
   display: inline-block;
-  margin: 23px 0 5px 15px; }
+  margin: 28px 0 8px 15px; }
   .light.off {
     opacity: 0.8; }
   .light.on {
