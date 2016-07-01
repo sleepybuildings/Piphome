@@ -9,6 +9,10 @@
 	{
 		var swiper = {
 
+			animateOptions: {
+				duration: 200,
+				queue: false
+			},
 			threshold: 200,
 			ignore: 10,
 			pageWidth: 0,
@@ -49,7 +53,7 @@
 
 			resetMove: function()
 			{
-				this.setPagePosition(0);
+				this.setPagePosition(0, true);
 			},
 
 
@@ -61,23 +65,40 @@
 
 			finishMove: function()
 			{
+
 				if(Math.abs(this.position.current - this.position.start) < this.threshold)
 				{
 					this.resetMove();
 					return;
 				}
 
+				var animate = true;
+
 				if(this.position.current > this.position.start)
 				{
-					this.pages.active.css('left', this.pageWidth);
-					this.pages.left.css('left', 0);
+					if(animate)
+					{
+						this.pages.active.animate({left: this.pageWidth}, this.animateOptions);
+						this.pages.left.animate({left: 0}, this.animateOptions);
+
+					} else {
+
+						this.pages.active.css('left', this.pageWidth);
+						this.pages.left.css('left', 0);
+					}
 
 					this.selectPages(this.pages.left);
 
 				} else {
-					this.pages.active.css('left', -this.pageWidth);
-					this.pages.right.css('left', 0);
 
+					if(animate)
+					{
+						this.pages.active.animate({left: -this.pageWidth}, this.animateOptions);
+						this.pages.right.animate({left: 0}, this.animateOptions);
+					} else {
+						this.pages.active.css('left', -this.pageWidth);
+						this.pages.right.css('left', 0);
+					}
 					this.selectPages(this.pages.right);
 				}
 			},
@@ -100,11 +121,18 @@
 			},
 
 
-			setPagePosition: function(left)
+			setPagePosition: function(left, animate)
 			{
-				this.pages.active.css('left', left);
-				this.pages.right.css('left', left + this.pageWidth);
-				this.pages.left.css('left', left - this.pageWidth);
+				if(animate)
+				{
+					this.pages.active.animate({left: left}, this.animateOptions);
+					this.pages.right.animate({left: left + this.pageWidth}, this.animateOptions);
+					this.pages.left.animate({left: left - this.pageWidth}, this.animateOptions);
+				} else {
+					this.pages.active.css('left', left);
+					this.pages.right.css('left', left + this.pageWidth);
+					this.pages.left.css('left', left - this.pageWidth);
+				}
 			},
 
 

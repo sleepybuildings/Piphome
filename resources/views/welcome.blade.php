@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{{ elixir('css/networkdevices.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/weather.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/lightcolorpickers.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/meter.css') }}">
 	<style type="text/css">
 		@if(!env('APP_DEBUG'))
 			*{ cursor: none }
@@ -29,6 +30,7 @@
 				@include('components.lighttools')
 				@include('components.networkdevices')
 				@include('components.weather')
+				@include('components.meter')
 			</div>
 
 
@@ -49,5 +51,10 @@
 	</div>
 
 	<script type="text/javascript" src="/js/globals.js"></script>
+
+	<script type="text/javascript" src="/js/highcharts/js/highcharts.js"></script>
+	<script type="text/javascript" src="/js/highcharts/js/highcharts-more.js"></script>
+	<script type="text/javascript" src="/js/highcharts/js/modules/solid-gauge.js"></script>
+
 </body>
 </html>

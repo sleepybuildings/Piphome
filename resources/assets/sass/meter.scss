@@ -1,0 +1,24 @@
+@import "variables";
+
+
+.block-meter{
+	position: absolute;
+	right: 0;
+	top: 136px;
+	bottom: 0;
+	width: 442px;
+}
+
+.meter-current{
+	color: white;
+	text-align: center;
+
+	.current{
+		font-size: 30px;
+	}
+
+	.unit{
+		font-size: 18px;
+		color: #c4c4c4;
+	}
+}
