@@ -20339,12 +20339,14 @@ var template = Object.freeze({
 
 		data: function()
 		{
-
 			return {
-				// Gevonden lichten
 
 				brightness: 100,
+
 				selectedColor: '#000000',
+				r: 0,
+				g: 0,
+				b: 0,
 
 				lights: []
 			}
@@ -20426,14 +20428,28 @@ var template = Object.freeze({
 			setLightColor: function()
 			{
 				var me = this;
+				var lights = [];
+
+				for(var index in this.lights)
+					if(this.lights[index].selected)
+						lights.push(this.lights[index].id);
+
+				if(!lights.length)
+					return;
+
 				$.post('/lights/set-colors', {
 
+					lights: lights,
 					brightness: this.brightness,
-					color: this.selectedColor,
+					color: {
+						r: this.r,
+						g: this.g,
+						b: this.b,
+					},
 
-				}, function()
+				}, function(response)
 				{
-
+					console.log(response);
 
 				}).always(function()
 				{
@@ -20448,6 +20464,10 @@ var template = Object.freeze({
 				var info = event.target.getContext('2d').getImageData(
 					event.clientX - clientRect.left, event.clientY - clientRect.top, 1, 1
 				);
+
+				this.r = info.data[0];
+				this.g = info.data[1];
+				this.b = info.data[2];
 
 				this.selectedColor = '#' + this.convertRGB(info.data[0], info.data[1], info.data[2]);
 			},

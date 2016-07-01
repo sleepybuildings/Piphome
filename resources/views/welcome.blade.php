@@ -26,9 +26,6 @@
 
 		<div id="pages">
 
-			<div class="page" style="background: royalblue;">
-				@include('components.lightcolorpicker')
-			</div>
 
 			<div class="page">
 				@include('components.lights')
@@ -38,6 +35,9 @@
 				@include('components.meter')
 			</div>
 
+			<div class="page" style="background: royalblue;">
+				@include('components.lightcolorpicker')
+			</div>
 
 			<!--
 			<div class="page" style="background: #dfe126;">

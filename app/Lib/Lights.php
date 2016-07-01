@@ -19,6 +19,27 @@ class Lights
 	}
 
 
+	public function setColors($forLights, $color, $brightness = 255)
+	{
+		$lights = $this->getLights();
+
+		foreach($forLights as $lightID)
+			foreach($lights as $light)
+			{
+				if($light->getId() == $lightID)
+				{
+					if(!$light->isOn())
+						$light->setOn(true);
+
+					if(count($color) == 3)
+						$light->setRGB($color['r'], $color['g'], $color['b']);
+
+					$light->setBrightness($brightness);
+				}
+			}
+	}
+
+
 	/**
 	 * @return \Phue\Light[]
 	 */

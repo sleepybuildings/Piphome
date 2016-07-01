@@ -1,7 +1,6 @@
 <?php namespace Piphome\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Piphome\Lib\Colors;
 use Piphome\Lib\Lights;
 
 class LightsController extends Controller
@@ -38,9 +37,15 @@ class LightsController extends Controller
 		]);
 	}
 
-	public function postSetColors()
+	public function postSetColors(Request $request)
 	{
-		echo 'KOE';
+		return response()->json([
+			'success' => (new Lights())->setColors(
+				$request->get('lights', []),
+				$request->get('color', null),
+				$request->get('brightness', 255)
+			)
+		]);
 	}
 
 

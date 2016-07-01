@@ -946,16 +946,16 @@
         },
         {
             "name": "sqmk/phue",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sqmk/Phue.git",
-                "reference": "10bce82e8447fa6fd9d9706b1c740a03e72e87d6"
+                "reference": "6b8ebf3ef3c101be854232ebcf44b9570cc93d04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sqmk/Phue/zipball/10bce82e8447fa6fd9d9706b1c740a03e72e87d6",
-                "reference": "10bce82e8447fa6fd9d9706b1c740a03e72e87d6",
+                "url": "https://api.github.com/repos/sqmk/Phue/zipball/6b8ebf3ef3c101be854232ebcf44b9570cc93d04",
+                "reference": "6b8ebf3ef3c101be854232ebcf44b9570cc93d04",
                 "shasum": ""
             },
             "require": {
@@ -1000,7 +1000,7 @@
                 "philips",
                 "phue"
             ],
-            "time": "2016-03-23 23:29:14"
+            "time": "2016-05-29 17:15:48"
         },
         {
             "name": "swiftmailer/swiftmailer",
