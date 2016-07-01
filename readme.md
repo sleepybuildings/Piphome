@@ -4,6 +4,8 @@ Raspberry pi home dashboard
 
 ![Screenshot](./screenshot.png)
 
+![Screenshot](./screenshot2.png)
+
 ## Install
 
 ```
