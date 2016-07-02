@@ -27,7 +27,7 @@
 		</div>
 
 		<div id="pages">
-			
+
 			<div class="page">
 				@include('components.lights')
 				@include('components.lighttools')

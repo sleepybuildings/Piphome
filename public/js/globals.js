@@ -20744,10 +20744,10 @@ var template = Object.freeze({
 							}
 						},
 						tooltip: {
-							valueSuffix: ' kW'
+							valueSuffix: ' W'
 						},
 						series: [{
-							name: 'kW',
+							name: 'W',
 							data: [0.000],
 							dataLabels: {
 								y: -70,
@@ -20757,7 +20757,7 @@ var template = Object.freeze({
 								{
 									return '<div class="meter-current"><span class="current">' +
 										this.y +
-										'</span><span class="unit">kW</span></div>';
+										'</span><span class="unit">W</span></div>';
 								}
 							},
 						}]
@@ -20896,7 +20896,7 @@ var template = Object.freeze({
 
 					series: [{
 						type: 'area',
-						name: 'kW',
+						name: 'W',
 						data: [],
 						states: {
 							hover: {

@@ -117,7 +117,7 @@
 
 					series: [{
 						type: 'area',
-						name: 'kW',
+						name: 'W',
 						data: [],
 						states: {
 							hover: {

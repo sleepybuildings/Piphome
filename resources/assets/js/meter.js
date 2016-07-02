@@ -110,10 +110,10 @@
 							}
 						},
 						tooltip: {
-							valueSuffix: ' kW'
+							valueSuffix: ' W'
 						},
 						series: [{
-							name: 'kW',
+							name: 'W',
 							data: [0.000],
 							dataLabels: {
 								y: -70,
@@ -123,7 +123,7 @@
 								{
 									return '<div class="meter-current"><span class="current">' +
 										this.y +
-										'</span><span class="unit">kW</span></div>';
+										'</span><span class="unit">W</span></div>';
 								}
 							},
 						}]

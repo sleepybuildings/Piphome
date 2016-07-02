@@ -39,11 +39,8 @@ class MeterReading extends Model
 		$day = date('Y-m-d ', is_int($day)? $day : strtotime($day));
 
 		$rows = \DB::table($this->table)
-			->select(
-				//\DB::raw('TIME(send_at) AS time'),
-				'send_at',
-				'l1'
-			)->whereBetween('send_at', [$day . '00:00', $day . '23:59'])
+			->select('send_at', 'l1')
+			->whereBetween('send_at', [$day . '00:00', $day . '23:59'])
 			->orderBy('send_at')
 			->get();
 
