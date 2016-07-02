@@ -8,26 +8,28 @@
   left: 138px;
   padding: 15px; }
   .block-weather .current-weather {
-    border-bottom: 3px solid white;
     overflow: auto; }
     .block-weather .current-weather .icon {
-      float: left;
-      padding-top: 7px;
-      margin-left: 15px; }
+      margin: -10px 10px 0 0;
+      font-size: 40px;
+      float: right; }
     .block-weather .current-weather .temperature {
       font-size: 40px;
       float: left;
       margin-top: -12px; }
-  .block-weather .sun {
-    margin: 5px 0 0 0; }
-    .block-weather .sun img {
-      vertical-align: middle;
-      margin-right: 10px; }
-    .block-weather .sun:last-child {
-      border-bottom: 3px solid white;
-      padding-bottom: 10px; }
+      .block-weather .current-weather .temperature .wi {
+        margin-left: -4px; }
+  .block-weather .times {
+    margin-top: -5px;
+    overflow: auto; }
+    .block-weather .times .sun {
+      width: 50%;
+      float: left;
+      display: inline-block; }
+      .block-weather .times .sun i {
+        margin-right: 5px; }
   .block-weather p {
-    margin: 15px 0 0 0;
+    margin: 10px 0 0 0;
     line-height: 16px;
     font-size: smaller;
     height: 115px;

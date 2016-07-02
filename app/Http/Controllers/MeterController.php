@@ -18,4 +18,12 @@ class MeterController extends Controller
 		]);
 	}
 
+
+	public function getToday()
+	{
+		return response()->json([
+			'dataset' => (new Meter())->getDay(time()),
+		]);
+	}
+
 }

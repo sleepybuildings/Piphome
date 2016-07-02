@@ -14,12 +14,13 @@ class Meter
 
 	public function getCurrent()
 	{
-		$current = \DB::table('meter_readings')
-			->select('l1')
-			->orderBy('send_at', 'desc')
-			->first();
+		return (new MeterReading())->getCurrent();
+	}
 
-		return !$current? 0.00 : floatval($current->l1);
+
+	public function getDay($day)
+	{
+		return (new MeterReading())->getDay($day);
 	}
 
 

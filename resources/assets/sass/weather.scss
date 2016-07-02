@@ -12,38 +12,43 @@
 	padding: 15px;
 
 	.current-weather{
-		border-bottom: $pipBorderWidth solid $pipBorderColor;
 		overflow: auto;
 
 		.icon{
-			float: left;
-			padding-top: 7px;
-			margin-left: 15px;
+			margin: -10px 10px 0 0;
+			font-size: 40px;
+			float: right;
 		}
 
 		.temperature{
 			font-size: 40px;
 			float: left;
 			margin-top: -12px;
+
+			.wi{
+				margin-left: -4px;
+			}
 		}
 	}
 
-	.sun{
-		margin: 5px 0 0 0;
 
-		img{
-			vertical-align: middle;
-			margin-right: 10px;
-		}
+	.times{
+		margin-top: -5px;
+		overflow: auto;
 
-		&:last-child{
-			border-bottom: $pipBorderWidth solid $pipBorderColor;
-			padding-bottom: 10px;
+		.sun{
+			width: 50%;
+			float: left;
+			display: inline-block;
+
+			i{
+				margin-right: 5px;
+			}
 		}
 	}
 
 	p{
-		margin: 15px 0 0 0;
+		margin: 10px 0 0 0;
 		line-height: 16px;
 		font-size: smaller;
 		height: 115px;

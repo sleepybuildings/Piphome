@@ -26,3 +26,4 @@ Route::get('ping', 'PingerController@getPing');
 Route::get('weather', 'WeatherController@getTest');
 
 Route::get('meter/current', 'MeterController@getCurrent');
+Route::get('meter/today', 'MeterController@getToday');

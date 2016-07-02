@@ -6,22 +6,22 @@
 		<div class="current-weather">
 			<div class="temperature">
 				@{{ temperature }}
-				<span>&deg;</span>
+				<i class="wi wi-celsius"></i>
 			</div>
 
 			<div class="icon">
-				<img v-bind:src="@{{ icon }}"/>
+				<i class="wi @{{ icon }}"></i>
 			</div>
 		</div>
 
-		<div>
+		<div class="times">
 			<div class="sun">
-				<img src="/images/sunrise.png"/>
+				<i class="wi wi-sunrise"></i>
 				@{{ sunrise }}
 			</div>
 
 			<div class="sun">
-				<img src="/images/sunset.png"/>
+				<i class="wi wi-sunset"></i>
 				@{{ sunset }}
 			</div>
 		</div>

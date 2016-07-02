@@ -10,12 +10,14 @@
 	<link rel="stylesheet" href="{{ elixir('css/weather.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/lightcolorpickers.css') }}">
 	<link rel="stylesheet" href="{{ elixir('css/meter.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/dailymeter.css') }}">
 	<style type="text/css">
 		@if(!env('APP_DEBUG'))
 			*{ cursor: none }
 		@endif
 	</style>
 	<link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/fonts/weather/css/weather-icons.min.css">
 </head>
 <body>
 
@@ -25,8 +27,7 @@
 		</div>
 
 		<div id="pages">
-
-
+			
 			<div class="page">
 				@include('components.lights')
 				@include('components.lighttools')
@@ -35,28 +36,23 @@
 				@include('components.meter')
 			</div>
 
-			<div class="page" style="background: royalblue;">
+			<div class="page">
 				@include('components.lightcolorpicker')
 			</div>
 
-			<!--
-			<div class="page" style="background: #dfe126;">
-				<h1 style="margin: 100px; color:white;font-size: 30px">RUND</h1>
+			<div class="page">
+				@include('components.dailymeter')
 			</div>
 
-			<div class="page" style="background: #5de167;">
-				<h1 style="margin: 100px; color:white;font-size: 30px">SCHAAP</h1>
-			</div> -->
+
 		</div>
 
 	</div>
 
 	<script type="text/javascript" src="/js/globals.js"></script>
-
 	<script type="text/javascript" src="/js/highcharts/js/highcharts.js"></script>
 	<script type="text/javascript" src="/js/highcharts/js/highcharts-more.js"></script>
 	<script type="text/javascript" src="/js/highcharts/js/modules/solid-gauge.js"></script>
 	<script type="text/javascript" src="/js/rangeslider/rangeslider.js"></script>
-
 </body>
 </html>

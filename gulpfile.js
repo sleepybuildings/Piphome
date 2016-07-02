@@ -25,6 +25,7 @@ elixir(function(mix)
         'weather.js',
         'networkdevices.js',
         'meter.js',
+        'dailymeter.js',
         'app.js'
 
     ], 'public/js/globals.js');
@@ -36,6 +37,7 @@ elixir(function(mix)
     mix.sass('clock.scss');
     mix.sass('lights.scss');
     mix.sass('meter.scss');
+    mix.sass('dailymeter.scss');
     mix.sass('app.scss');
 
     mix.version([
@@ -46,6 +48,7 @@ elixir(function(mix)
         'public/css/clock.css',
         'public/css/lights.css',
         'public/css/meter.css',
+        'public/css/dailymeter.css',
         'public/css/app.css',
     ]);
 

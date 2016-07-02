@@ -73,6 +73,7 @@ body::-webkit-scrollbar {
   outline: none; }
 
 #app {
+  overflow: hidden;
   -ms-user-select: none;
   user-select: none;
   -moz-user-select: none;
@@ -93,6 +94,12 @@ button {
   font-family: "Pragati Narrow"; }
   button:active {
     background: rgba(97, 97, 97, 0.5); }
+  button.toolbar-button {
+    z-index: 9999;
+    height: 55px;
+    min-width: 60px;
+    font-size: 33px;
+    color: rgba(255, 255, 255, 0.5); }
 
 #toolbar {
   background: #2d2d2d;
@@ -105,7 +112,6 @@ button {
   background: #1a1a1a; }
 
 #pages {
-  overflow: hidden;
   position: relative;
   height: 425px;
   width: 800px;

@@ -74,12 +74,25 @@ class Weather
 
 			if(!empty($weatherStation))
 			{
-				$this->weatherIcon = (string)$weatherStation->icoonactueel;
+				$this->weatherIcon = $this->findIcon((string)$weatherStation->icoonactueel->attributes()->zin);
 				$this->temperature = floatval($weatherStation->temperatuurGC);
-
-				//dd($this->temperature);
 			}
 		}
+	}
+
+
+	protected function findIcon($zin)
+	{
+		$icons = [
+			'zonnig'                          => 'wi-day-sunny',
+			'bewolkt'                         => 'wi-cloudy',
+			'zonnig en bewolkt'               => 'wi-day-cloudy',
+			'bewolkt en regen'                => 'wi-day-rain',
+			'zonnig met lichte regen'         => 'wi-hail',
+			'zonnig, bewolkt en lichte regen' => 'wi-day-hail',
+		];
+
+		return isset($icons[$zin])? $icons[$zin] : 'wi-meteor';
 	}
 
 

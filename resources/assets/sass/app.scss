@@ -33,6 +33,7 @@ body::-webkit-scrollbar { width: 0 !important }
 }
 
 #app{
+	overflow: hidden;
 	user-select: none;
 	-moz-user-select: none;
 	-khtml-user-select: none;
@@ -56,6 +57,14 @@ button{
 	&:active{
 		background: rgba(97, 97, 97, 0.5);
 	}
+
+	&.toolbar-button{
+		z-index: 9999;
+		height: 55px;
+		min-width: 60px;
+		font-size: 33px;
+		color: rgba(255, 255, 255, 0.5);
+	}
 }
 
 #toolbar{
@@ -72,7 +81,7 @@ button{
 }
 
 #pages{
-	overflow: hidden;
+	// overflow: hidden;  Om buttons op de toolbar te kunnen zetten...
 	position: relative;
 	height: $pipScreenHeight - $pipToolbar;
 	width: $pipScreenWidth;

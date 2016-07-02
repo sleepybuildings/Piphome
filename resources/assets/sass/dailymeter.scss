@@ -1,0 +1,12 @@
+@import "variables";
+
+
+.block-dailymeter{
+	height: $pipScreenHeight - $pipToolbar;
+	background: #232323;
+
+	.toolbar-button{
+		top: -55px;
+		position: absolute;
+	}
+}

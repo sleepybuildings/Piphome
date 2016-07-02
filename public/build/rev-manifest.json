@@ -1,10 +1,11 @@
 {
-  "css/app.css": "css/app-4aaf7ff36e.css",
+  "css/app.css": "css/app-259035c22f.css",
   "css/clock.css": "css/clock-51d5d61b71.css",
+  "css/dailymeter.css": "css/dailymeter-78ec6905b1.css",
   "css/lightcolorpickers.css": "css/lightcolorpickers-2f9771cca2.css",
   "css/lights.css": "css/lights-ae2965d763.css",
   "css/lighttools.css": "css/lighttools-da26374514.css",
   "css/meter.css": "css/meter-27f25d55f7.css",
   "css/networkdevices.css": "css/networkdevices-0d8ef93245.css",
-  "css/weather.css": "css/weather-6c231babe9.css"
+  "css/weather.css": "css/weather-85434f837d.css"
 }

@@ -44,7 +44,7 @@
 
 				start: function()
 				{
-					window.setInterval(this.update, 5000); 
+					window.setInterval(this.update, 5000);
 				},
 
 
@@ -66,7 +66,6 @@
 							backgroundColor: null,
 						},
 						title: 'P1 Meter',
-
 						pane: {
 							center: ['50%', '60%'],
 							size: '90%',
