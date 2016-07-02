@@ -36,6 +36,7 @@
 			{
 				this.makeChart();
 				this.update();
+				this.start();
 			},
 
 
@@ -43,7 +44,7 @@
 
 				start: function()
 				{
-					window.setInterval(this.update, 5000);
+					window.setInterval(this.update, 5000); 
 				},
 
 

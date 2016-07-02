@@ -20670,6 +20670,7 @@ var template = Object.freeze({
 			{
 				this.makeChart();
 				this.update();
+				this.start();
 			},
 
 
@@ -20677,7 +20678,7 @@ var template = Object.freeze({
 
 				start: function()
 				{
-					window.setInterval(this.update, 5000);
+					window.setInterval(this.update, 5000); 
 				},
 
 
