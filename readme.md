@@ -2,9 +2,11 @@
 
 Raspberry pi home dashboard
 
-![Screenshot](./screenshot1.png)
+![Screenshot](./doc/s1.png)
 
-![Screenshot](./screenshot2.png)
+![Screenshot](./doc/s2.png)
+
+![Screenshot](./doc/s3.png)
 
 ## Install
 
